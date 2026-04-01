@@ -4,9 +4,9 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { DollarSign, ArrowDown, ArrowUp } from 'lucide-react';
 
 export default function Dashboard() {
-  const [summary, setSummary] = useState<any>(null);
-  const [trends, setTrends] = useState<any>([]);
-  const [categoryTotals, setCategoryTotals] = useState<any>([]);
+  const [summary, setSummary] = useState(null);
+  const [trends, setTrends] = useState([]);
+  const [categoryTotals, setCategoryTotals] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,14 +20,14 @@ export default function Dashboard() {
         setSummary(sumRes.data);
         
         // Format trends
-        setTrends(trendRes.data.map((t: any) => ({
+        setTrends(trendRes.data.map((t) => ({
           name: `${t._id.year}-${String(t._id.month).padStart(2, '0')}`,
           income: t._id.type === 'income' ? t.total : 0,
           expense: t._id.type === 'expense' ? t.total : 0,
         })));
         
         // Format categories
-        setCategoryTotals(catRes.data.map((c: any) => ({
+        setCategoryTotals(catRes.data.map((c) => ({
           name: c._id.category,
           value: c.total,
           type: c._id.type
@@ -106,11 +106,11 @@ export default function Dashboard() {
                   paddingAngle={5}
                   dataKey="value"
                 >
-                  {categoryTotals.map((entry: any, index: number) => (
+                  {categoryTotals.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.type === 'expense' ? '#ef4444' : COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(val: any) => `$${val?.toLocaleString()}`} contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'}} />
+                <Tooltip formatter={(val) => `$${val?.toLocaleString()}`} contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'}} />
                 <Legend />
               </PieChart>
             </ResponsiveContainer>

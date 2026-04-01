@@ -10,13 +10,13 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       await login(email, password);
       navigate('/');
-    } catch (err: any) {
+    } catch (err) {
       const apiMsg = err?.response?.data?.message || err?.message;
       setError(apiMsg || 'Login failed. Please check your credentials.');
     } finally {

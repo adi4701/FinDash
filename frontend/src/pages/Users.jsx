@@ -5,7 +5,7 @@ import { Plus, Shield, User as UserIcon } from 'lucide-react';
 
 export default function Users() {
   const { user } = useAuth();
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchUsers = async () => {
@@ -24,12 +24,12 @@ export default function Users() {
     fetchUsers();
   }, []);
 
-  const toggleStatus = async (id: string, currentStatus: string) => {
+  const toggleStatus = async (id, currentStatus) => {
     if (!window.confirm('Change user status?')) return;
     try {
       await api.patch(`/users/${id}`, { status: currentStatus === 'active' ? 'inactive' : 'active' });
       fetchUsers();
-    } catch (err: any) {
+    } catch (err) {
       alert(err || 'Error updating status');
     }
   };

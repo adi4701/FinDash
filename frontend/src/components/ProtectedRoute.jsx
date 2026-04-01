@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-export const ProtectedRoute = ({ allowedRoles }: { allowedRoles?: string[] }) => {
+export const ProtectedRoute = ({ allowedRoles }) => {
   const { user, isLoading } = useAuth();
 
   if (isLoading) {

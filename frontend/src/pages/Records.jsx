@@ -5,7 +5,7 @@ import { Plus, Edit, Trash2 } from 'lucide-react';
 
 export default function Records() {
   const { user } = useAuth();
-  const [records, setRecords] = useState<any[]>([]);
+  const [records, setRecords] = useState([]);
   const [loading, setLoading] = useState(true);
   const [meta, setMeta] = useState({ page: 1, limit: 10, total: 0, totalPages: 1 });
   const [filters, setFilters] = useState({ type: '', category: '' });
@@ -21,7 +21,7 @@ export default function Records() {
       if (filters.type) params.append('type', filters.type);
       if (filters.category) params.append('category', filters.category);
 
-      const res: any = await api.get(`/records?${params.toString()}`);
+      const res = await api.get(`/records?${params.toString()}`);
       setRecords(res.data);
       setMeta(res.meta);
     } catch (err) {
@@ -35,7 +35,7 @@ export default function Records() {
     fetchRecords();
   }, [meta.page, filters]);
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id) => {
     if (!window.confirm('Delete record?')) return;
     try {
       await api.delete(`/records/${id}`);
@@ -45,7 +45,7 @@ export default function Records() {
     }
   };
 
-  const handleCreateRecord = async (e: React.FormEvent) => {
+  const handleCreateRecord = async (e) => {
     e.preventDefault();
     try {
       await api.post('/records', {
