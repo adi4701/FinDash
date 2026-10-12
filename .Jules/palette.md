@@ -1,0 +1,3 @@
+## 2023-10-12 - Missing Accessible Names on Table Action Icons
+**Learning:** In data tables with admin actions (like in `Records.jsx`), "Edit" and "Delete" icons were used as the sole contents of interactive buttons. While visually intuitive, this causes severe accessibility issues as screen readers have no text to announce. Additionally, keyboard navigation lacked clear visual focus states for these buttons.
+**Action:** Always verify that icon-only interactive elements (buttons, links) have a clear, descriptive `aria-label` or `title` attribute. Furthermore, ensure these elements have a visible focus outline (`focus-visible:ring-2`) to assist keyboard navigation.
