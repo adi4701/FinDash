@@ -1,0 +1,3 @@
+## 2024-03-24 - Accessibility improvements for icon-only action buttons
+**Learning:** Icon-only action buttons in data tables often lack context for screen readers and miss visible keyboard focus states, making them difficult to interact with for non-mouse users, especially when placed in dense UI areas like table cells.
+**Action:** When creating data tables with inline actions, always ensure icon-only buttons include descriptive `aria-label` attributes (e.g., "Edit record", "Delete record") and clear `:focus-visible` styles with sufficient click area (`p-1 rounded` padding) to support keyboard navigation.
