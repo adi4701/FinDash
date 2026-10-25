@@ -1,0 +1,3 @@
+## 2026-10-25 - [Missing Accessible Names on Icon-only Table Actions]
+**Learning:** Icon-only action buttons within table rows (like Edit and Delete) often lack `aria-label`s and proper keyboard focus states, making them inaccessible to screen readers and keyboard users.
+**Action:** Always ensure that any icon-only button contains an `aria-label`, a `title` (for mouse users), and explicitly visible focus states (e.g. `focus-visible:outline-none focus-visible:ring-2 rounded`) so they can be easily interacted with across all devices.
