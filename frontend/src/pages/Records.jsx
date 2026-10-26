@@ -226,8 +226,19 @@ export default function Records() {
                     {user?.role === 'admin' && (
                       <td className="py-3 px-6">
                         <div className="flex items-center space-x-3 text-gray-400">
-                          <button className="hover:text-indigo-600 transition"><Edit className="w-4 h-4" /></button>
-                          <button className="hover:text-red-600 transition" onClick={() => handleDelete(record._id)}>
+                          <button
+                            className="hover:text-indigo-600 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded p-1"
+                            aria-label="Edit record"
+                            title="Edit record"
+                          >
+                            <Edit className="w-4 h-4" />
+                          </button>
+                          <button
+                            className="hover:text-red-600 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded p-1"
+                            onClick={() => handleDelete(record._id)}
+                            aria-label="Delete record"
+                            title="Delete record"
+                          >
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
