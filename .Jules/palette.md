@@ -1,0 +1,3 @@
+## 2024-10-27 - Icon-only buttons accessibility pattern
+**Learning:** Icon-only action buttons in data tables (like edit/delete) often lack context for screen readers and keyboard navigation visibility, breaking WCAG standards.
+**Action:** When adding or modifying icon-only buttons, always include descriptive `aria-label`s, `title`s (for mouse hover tooltips), and explicit `focus-visible` styles (e.g. `focus-visible:ring-2 focus-visible:ring-offset-1 focus:outline-none`) to ensure clear context and interaction states.
