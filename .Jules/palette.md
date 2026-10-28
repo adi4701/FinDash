@@ -1,0 +1,3 @@
+## 2024-05-18 - Playwright Frontend Verification Auth Bypassing
+**Learning:** The frontend uses an axios interceptor that automatically unwraps `response.data`. When mocking the backend in Playwright, you must mock against the backend URL (`http://localhost:4000/**`). Additionally, you must intercept `OPTIONS` requests to provide CORS headers, otherwise requests fail in the browser.
+**Action:** When mocking APIs in Playwright for this repo, mock against `http://localhost:4000/**`, fulfill `OPTIONS` requests with `Access-Control-Allow-Origin: *` headers, and format the JSON response carefully noting the axios interceptor.
