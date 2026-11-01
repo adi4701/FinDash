@@ -1,0 +1,3 @@
+## 2025-03-01 - Icon-only buttons lacking ARIA labels and focus states in data tables
+**Learning:** Icon-only action buttons (like Edit and Delete) inside data tables are a common pattern in this application's admin interfaces but often lack `aria-label` attributes and proper keyboard focus states, making them inaccessible to screen readers and difficult to use for keyboard navigators.
+**Action:** When adding or reviewing action buttons in tabular data displays across the app, proactively add `aria-label` or `title` attributes explaining the action, and use Tailwind utilities like `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color]` to ensure interactive elements have a clear focus ring without impacting standard mouse clicks.
